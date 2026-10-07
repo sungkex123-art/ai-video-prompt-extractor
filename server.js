@@ -9,8 +9,7 @@ const port = Number(process.env.PORT || 3000);
 const model = process.env.OPENAI_MODEL || 'gpt-6-luna';
 
 app.use(express.json({ limit: '35mb' }));
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(__dirname));
 function promptFor(mode, extra, count) {
   return `You are an expert AI video prompt extractor. Analyze the ordered video frames as evidence of ONE continuous source video. Do not invent details that are not visually supported. Infer motion, continuity, camera movement, framing, lens feel, lighting, environment, character/object appearance, physics, and audio/dialogue only when supported.
 
@@ -67,4 +66,4 @@ app.post('/api/analyze', async (req, res) => {
 });
 
 app.get('*catchall', (_req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
-app.listen(port, '0.0.0.0', () => console.log(`AI Prompt Extractor running on port ${port}`));
+app.get('*catchall', (_req, res) => res.sendFile(path.join(__dirname, 'index.html')));
