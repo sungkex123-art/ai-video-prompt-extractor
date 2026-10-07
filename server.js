@@ -10,6 +10,10 @@ const model = process.env.OPENAI_MODEL || 'gpt-6-luna';
 
 app.use(express.json({ limit: '35mb' }));
 app.use(express.static(__dirname));
+app.get('/app.js', (_req, res) => res.sendFile(path.join(__dirname, 'app.js')));
+app.get('/sw.js', (_req, res) => res.sendFile(path.join(__dirname, 'sw.js')));
+app.get('/manifest.webmanifest', (_req, res) => res.sendFile(path.join(__dirname, 'manifest.webmanifest')));
+app.get('/icon.svg', (_req, res) => res.sendFile(path.join(__dirname, 'icon.svg')));
 function promptFor(mode, extra, count) {
   return `You are an expert AI video prompt extractor. Analyze the ordered video frames as evidence of ONE continuous source video. Do not invent details that are not visually supported. Infer motion, continuity, camera movement, framing, lens feel, lighting, environment, character/object appearance, physics, and audio/dialogue only when supported.
 
