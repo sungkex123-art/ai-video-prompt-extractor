@@ -71,3 +71,4 @@ app.post('/api/analyze', async (req, res) => {
 
 
 app.get('*catchall', (_req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+export default app;
