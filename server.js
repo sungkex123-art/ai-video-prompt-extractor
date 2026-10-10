@@ -27,7 +27,7 @@ app.get('/icon.svg', (_req, res) =>
 function promptFor(mode, extra, count) {
   return `You are an expert AI video prompt extractor. Analyze the ordered video frames as evidence of ONE continuous source video.
 
-MODE: ${mode}
+MODES: Generate ALL FOUR outputs in this exact order: CREATIVE EXTRACTION, 10s 9:16, MULTISHOT TIMELINE, STORYBOARD. Give each mode its own heading and complete ready-to-use prompt. Do not omit any mode.
 FRAME COUNT: ${count}
 
 USER INSTRUCTIONS:
